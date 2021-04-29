@@ -1,3 +1,6 @@
+import { createHome } from "./home-app";
+
+
 const init = (container)=>{
     createHtml(container);
 };
@@ -11,6 +14,8 @@ const createHtml = (container)=>{
     main.appendChild(wrapper);
     wrapper.appendChild(createHeader());
     wrapper.appendChild(createMain(setSection));
+    wrapper.appendChild(createFooter());
+    createHome();
 };
 
 
@@ -20,22 +25,28 @@ const createHeader = ()=>{
     wrapper.classList = 'wrapper__header';
     wrapper.innerHTML = `
     <header>
-        <div id="wrapper-messaje" class="wrapper__messaje">
-            <span>Atencion....</span>
-        </div>
         <div id="wrapper-nav" class="wrapper__nav">
             <nav>
                 <div id="wrapper-content" class="wrapper__content">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" data-target="home" class="nav__link active">inicio</a></li>
-                        <li class="nav__item"><a href="#planes_y_caracteristicas" data-target="plan" class="nav__link">planes y caracteristicas</a></li>
-                        <li class="nav__item"><a href="#interactua" data-target="interactua" class="nav__link">interactua</a></li>
-                        <li class="nav__item"><a href="#conozcamonos" data-target="conozcamonos" class="nav__link">conozcamonos</a></li>
-                        <button class="btn__login" id="btn-login"><a href="#login" data-target="login" class="nav__link">Login</a></button>
-                        <button class="btn__count" id="btn-count"><a href="#count" data-target="count" class="nav__link">Crear cuenta</a></button>
+                    <div class="nav__li">
+                        <li class="nav__item"><a href="#planes" data-target="plan" class="nav__link">PLANES</a></li>
+                        <li class="nav__item"><a href="#interactua" data-target="interactua" class="nav__link">INTERACTUA</a></li>
+                        <li class="nav__item3"><a href="#home" class="nav__link active"><img data-target="home" class="nav__img" src="./assets/front.jpg" alt="front"><div><span class="nav__img__title" data-target="home">SOFTWARE</span></div></a></li>
+                        <li class="nav__item"><a href="#conozcamonos" data-target="conozcamonos" class="nav__link">CONOZCAMONOS</a></li>
+  
+                        <div class="nav__btn">
+                        <button class="btn__login" id="btn-login"><a href="#login" class="nav__link"><span data-target="login" class="txt__btn">INGRESAR</span></a></button>
+                        <button class="btn__count" id="btn-count"><a href="#count" class="nav__link"><span data-target="count" class="txt__btn">CREAR CUENTA</span></a></button>
+                        </div>
+                     </div>   
                     </ul>
                 </div> 
             </nav>
+        </div>
+        <div class="wrapper__messaje">
+            <span class="messaje__hour">Llamanos 3117166194</span>
+            <span class="messaje__hour">8am a 6pm</span>
         </div>
     </header>`;
 
@@ -51,6 +62,7 @@ const createMain = (event)=>{
     main.appendChild(createSections());
     const sectionNav = Array.from(document.querySelectorAll('[data-target]'));
     sectionNav.map((element)=>{element.addEventListener('click', event)});
+    const juju = document.getElementById('wrapper-home');
     wrapper.appendChild(main);
     return wrapper;
 };
@@ -61,12 +73,14 @@ const createSections = ()=>{
     wrapper.id = 'wrapper-sections';
     wrapper.classList = 'wrapper__sections';
     wrapper.innerHTML = `
-    <div data-content id="wrapper-home" class="activo">Aqui va el inicio</div>
-    <div data-content id="wrapper-plan" class="">Aqui van los planes</div>
+    <div data-content id="wrapper-home" class="wrapper__home activo"></div>
+    <div data-content id="wrapper-plan" class="wrapper__plan">Aqui van los planes</div>
     <div data-content id="wrapper-interactua" class="">Aqui va interactuar</div>
     <div data-content id="wrapper-conozcamonos" class="">Aqui va conozcamonos</div>
     <div data-content id="wrapper-login" class="">Aqui van login</div>
-    <div data-content id="wrapper-count" class="">Aqui van create count</div>`;
+    <div data-content id="wrapper-count" class="">Aqui van create count</div>
+    <div data-content id="wrapper-contacto" class="">Aqui va contacto</div>`;
+    
 
     return wrapper;
 };
@@ -79,6 +93,27 @@ const setSection = (ev)=>{
     const selectSection = document.getElementById(`wrapper-${id}`);
     selectSection.classList.add('activo');
 };
+
+
+const createFooter = ()=>{
+    const wrapper = document.createElement('div');
+    wrapper.id = 'wrapper-footer';
+    wrapper.classList = 'wrapper__footer';
+    wrapper.innerHTML = `
+    <footer>
+        <div class="footer__icons">
+            <a href="https://www.facebook.com/" target="_blank" class="nav__link"><i class='icn bx bxl-facebook-circle'></i></a>
+        </div>
+        <div class="footer__icons">
+            <a href="https://www.facebook.com/" target="_blank" class="nav__link"><i class='icn bx bxl-twitter'></i></a>
+        </div>
+        <div class="footer__icons">
+            <a href="https://www.facebook.com/" target="_blank" class="nav__link"><i class='icn bx bxl-facebook'></i></a>
+        </div>
+    </footer>`
+
+    return wrapper;
+}
 
 
 export{init};

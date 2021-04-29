@@ -1,19 +1,20 @@
 *{
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
+    font-size: 62.5%;
 }
 
-.nav__item{
-    display: inline-block;
-    margin: 0 0.5rem;
+body{
+    background: #fff;
+    margin: 0;
+    padding: 2%;
+    line-height: 1.6;
 }
-
 
 a{
     text-decoration: none;
     color: #000;
 }
+
 
 [data-content]{
     display: none;
@@ -23,12 +24,427 @@ a{
     display: block;
 }
 
-.nav__list{
-    width: 36.5%;
+
+
+/*----navegation---*/
+.wrapper__main{
+    width: 100%;
     margin: 0 auto;
 }
 
+.wrapper__nav{
+    border-top: #F2F3F4 solid 2px;
+    border-bottom: #F2F3F4 solid 2px;
+    text-align: center;
+    margin: auto;
+}
+
+.wrapper__content{
+    width: 100%;
+}
+
+.nav__list{
+    margin-left: 15px;
+}
+
+.nav__li{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    width: 98%;
+    margin: auto;
+    align-items: center;
+    font-size: 6rem;
+    font-family: Georgia,  serif;
+}
+
+
+
+.nav__item3{
+    display: flex;
+    flex-direction: column;
+    font-size: 6rem;
+    margin-left: 80px;
+    margin-right: 20px;
+}
+
+
+.nav__link{
+    color: #104f55;
+}
+
+.nav__img{
+    width: 100px;
+    margin-bottom: -20px;
+}
+
 .wrapper__messaje{
+    position: absolute;
+    right: 80px;
+    display: flex;
+    flex-direction: column;
+    font-size: 4rem;
+    font-family: Tahoma, sans-serif;
+}
+
+.messaje__hour{
+    margin-top: -5px;
+}
+
+.nav__btn{
+    display: flex;
+    flex-direction: column;
+    margin-top: -1px;
+}
+
+.btn__login{
+    margin-bottom: -1px;
+    border: #F77F00 solid 1px;
+    background: none;
+    padding-bottom: 7px;
+}
+
+.btn__login:hover{
+    background: #F77F00;
+    transition: 0.3s;
+}
+
+.btn__count{
+    border: #F77F00 solid 1px;
+    background: none;
+    margin-left: 0;
+    padding-bottom: 7px;
+}
+
+.btn__count:hover{
+    background: #F77F00;
+    transition: 0.3s;
+}
+
+.txt__btn{
+    font-size: 1.8rem;
+    font-family: Georgia,  serif;
+}
+
+
+/*----main-----*/
+.wrapper__main{
+    width: 99%;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.wrapper__img__home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
+.home__img__one{
+    width: 30%;
+}
+
+.description__home{
+    font-size: 3rem;
+    font-family: Tahoma, sans-serif;
+}
+
+.description__home2{
+    margin-top: -10px;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*-----galery-----*/
+.wrapper__galery{
+    margin: 0 auto;
+}
+
+.galery{
+    display: flex;
+    justify-content: center;
+}
+
+.content__galery{
+    width: 80%;
+}
+
+.galery__img{
+    width: 99%;
+    height: 303px;
+}
+
+.galery__img1{
+    width: 99%;
+    height: 150px;
+}
+
+.galery__img2{
+    height: 150px;
+    width: 99%;
+}
+
+
+/*----planes----*/
+.wrapper__plans{
+    width: 100%;
+    text-align: center;
+}
+
+.planes{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.content__plan{
+    width: 20%;
+    margin: 0 1.5%;
+    padding: 4% 0;
+    border: solid 1.5px;
+    font-size: 3rem;
+    font-family: Tahoma, sans-serif;
+}
+
+.plan__txt{
+    font-size: 5rem;
+    font-family: Georgia, serif;
+}
+
+.btn__plan{
+    border: none;
+    background: none;
+}
+
+.txt__btn__plan{
+    font-size: 2.5rem;
+    font-family: Georgia, serif;
+}
+
+.plan1{
+    border-color: #F77F00;
+}
+
+.plan2{
+    border-color: #104f55;
+}
+
+.plan3{
+    border-color: #828c51;
+}
+
+
+.plan4{
+    border-color: #000;
+}
+
+
+/*----caracteristics-----*/
+.wrapper__caracteristics{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.caracteristics{
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%;
+    margin: auto;
+}
+
+.content__caracteristics{
+    display: flex;
+    flex-direction: column;
+    font-size: 5rem;
+    font-family: Tahoma, sans-serif;
+    margin-top: -5px;
+}
+
+.txt__caracteristics{
+    margin-top: -6px;
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+i{
+    font-size: 7rem;
+}
+
+.caracteristics__btn{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.btn__caracteristics{
+    border: none;
+    background: none;
+}
+
+.txt__btn__caracteristics{
+    font-size: 3rem;
+    font-family: Georgia, serif;
+}
+
+
+/*----clients----*/
+.wrapper__clients{
+    width: 70%;
+    border: #104f55 solid 1.5px ;
+    margin: 0 auto;
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+.client{
+    display: flex;
+    align-items: center;
+}
+
+.client__txt{
+    margin: auto;
+    width: 80%;
+    padding: 10%;
+    height: 100%;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.content__client{
+    width: 100%;
+}
+
+.client__img{
+    margin: auto;
+    width: 100%;
+    padding: 10%;
+    height: 500px;
+}
+
+.content__leyend{
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 3rem;
+    font-family: Tahoma, serif;;
+}
+
+
+/*----footer------*/
+
+footer{
+    display: flex;
+    margin: 0 auto;
+    text-align: center;
+    width: 10%;
+    border: solid #F2F3F4 1px;
+}
+
+.footer__icons{
+    display: inline-block;
+    margin: 0 auto;
+    padding: auto;  
+    width: 33.33%;
+}
+
+.footer__icons:hover{
+    background: #F2F3F4;
+}
+
+.icn{
+    color: #000;
+    font-size: 3rem;
+}
+
+
+@media screen and (max-width: 1250px) {
+    .client__txt{
+        margin-top: 0;
+    }
+ }
+
+ @media screen and (max-width: 880px) {
+    .nav__item3{
+        margin-left: 60px;
+        margin-right: 10px;
+    }
+
+    .nav__btn{
+        margin-left: 5px;
+    }
+
+    .txt__btn{
+        font-size: 1.4rem;
+    }
+
+    .nav__li{
+        font-size: 4rem;
+    }
+
+    .nav__item{
+        margin-right: 10px;
+    }
+
+ }
+
+
+@media screen and (max-width: 700px) {
+    .nav__li{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    .planes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content__plan{
+        margin: 10px 0;
+        font-size: 1.5rem;
+
+    }
+
+    .nav__list{
+
+        margin-right: 50px;
+    
+    }
+
+    .content__galery{
+        width: 30%;
+    }
+
+    .wrapper__clients{
+        width: 100%;
+    }
+
+    .nav__btn{
+        margin-bottom: 10px;
+    }
+
+    .nav__item3{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .wrapper__messaje{
+
+        right: 40px;
+
+        
+    }
+ }
+ 
+
+
+
+
+
+ 
