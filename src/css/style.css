@@ -341,16 +341,13 @@ footer{
     display: flex;
     margin: 0 auto;
     text-align: center;
-    width: 10%;
     border: solid #F2F3F4 1px;
+    width: 150px;
 }
 
 .footer__icons{
-    
-    display: inline-block;
     margin: 0 auto;
-    padding: auto;  
-    width: 30%;
+    width: 100%;
 }
 
 .icn{
