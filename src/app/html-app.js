@@ -28,25 +28,24 @@ const createHeader = ()=>{
         <div id="wrapper-nav" class="wrapper__nav">
             <nav>
                 <div id="wrapper-content" class="wrapper__content">
-                    <ul class="nav__list">
                     <div class="nav__li">
                         <li class="nav__item"><a href="#planes" data-target="plan" class="nav__link">PLANES</a></li>
                         <li class="nav__item"><a href="#interactua" data-target="interactua" class="nav__link">INTERACTUA</a></li>
-                        <li class="nav__item3"><a href="#home" class="nav__link active"><img data-target="home" class="nav__img" src="./assets/front.jpg" alt="front"><div><span class="nav__img__title" data-target="home">SOFTWARE</span></div></a></li>
+                        <li class="nav__item nav__item3"><a href="#home" class="nav__link active"><img data-target="home" class="nav__img" src="./assets/front.jpg" alt="front"><div><span class="nav__img__title" data-target="home">SOFTWARE</span></div></a></li>
                         <li class="nav__item"><a href="#conozcamonos" data-target="conozcamonos" class="nav__link">CONOZCAMONOS</a></li>
   
                         <div class="nav__btn">
                         <button class="btn__login" id="btn-login"><a href="#login" class="nav__link"><span data-target="login" class="txt__btn">INGRESAR</span></a></button>
+                        <br>
                         <button class="btn__count" id="btn-count"><a href="#count" class="nav__link"><span data-target="count" class="txt__btn">CREAR CUENTA</span></a></button>
                         </div>
                      </div>   
-                    </ul>
                 </div> 
             </nav>
         </div>
         <div class="wrapper__messaje">
-            <span class="messaje__hour">Llamanos 3117166194</span>
-            <span class="messaje__hour">8am a 6pm</span>
+            <span class="messaje__hour">Llamanos 3117166194</span><br>
+            <p class="messaje__hour2">8am a 6pm</p>
         </div>
     </header>`;
 

@@ -48,13 +48,14 @@ const createPlanes = ()=>{
     <div class="plan__txt">
         <span>Planes</span>
     </div>
-    <div class="planes">
-        <div class="content__plan plan1">Plan A</div>
-        <div class="content__plan plan2">Plan B</div>
-        <div class="content__plan plan3">Plan C</div>
-        <div class="content__plan plan4">Plan D</div>
-    </div>
-    <br>
+    
+        <div class="planes">
+            <div class="content__plan plan1"><article>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem velit fuga dolor, sit fugit laborum quos at, tempora vitae nobis veritatis, quo amet fugiat iste molestias consectetur consequatur ab atque!</article></div>
+            <div class="content__plan plan2"><article>Plan B</article></div>
+            <div class="content__plan plan3"><article>Plan C</article></div>
+            <div class="content__plan plan4"><article>Plan D</article></div>
+        </div>
+
     <div class="content__btn__plan">
      <button class="btn__plan" id="btn-plan"><a href="#plan" class="nav__link"><span data-target="plan" class="txt__btn__plan">Ver precios ></span></a></button>
     </div>`;
@@ -70,7 +71,7 @@ const createCaracteristics = ()=>{
         <div class="caracteristics">
             <i class='bx bxs-mobile'></i>
                 <div class="content__caracteristics">
-                    <span>Más rapido,</span>
+                    <span>Más rapido,</span><br>
                     <span class="txt__caracteristics">Siempre pensando en el tiempo que inviertes en tu negocio y en tu familia.</span>
                 </div>
         </div>
@@ -78,7 +79,7 @@ const createCaracteristics = ()=>{
         <div class="caracteristics">
             <i class='bx bxs-mobile'></i>
                 <div class="content__caracteristics">
-                    <span>Más simple,</span>
+                    <span>Más simple,</span><br>
                     <span class="txt__caracteristics">Esto te permitira hacerlo sencillo hasta tus hijos podran ayudarte en tu negocio</span>
                 </div>
         </div>
@@ -86,7 +87,7 @@ const createCaracteristics = ()=>{
         <div class="caracteristics">
             <i class='bx bxs-mobile'></i>
                 <div class="content__caracteristics">
-                    <span>Más accesible,</span>
+                    <span>Más accesible,</span><br>
                     <span class="txt__caracteristics">Te imaginaste tener todo en la palma de tu mano</span>
                 </div>
         </div>
@@ -94,7 +95,7 @@ const createCaracteristics = ()=>{
         <div class="caracteristics">
             <i class='bx bxs-mobile'></i>
                 <div class="content__caracteristics">
-                    <span>Más organizado,</span>
+                    <span>Más organizado,</span><br>
                     <span class="txt__caracteristics">Deja tu cuaderno, deja de llevar cálculos en tu mente deja que el software haga eso por ti</span>
                 </div>
         </div>
@@ -102,7 +103,7 @@ const createCaracteristics = ()=>{
         <div class="caracteristics">
             <i class='bx bxs-mobile'></i>
                 <div class="content__caracteristics">
-                    <span>Más personalizado,</span>
+                    <span>Más personalizado,</span><br>
                     <span class="txt__caracteristics">Este programa te permitira adaptarlo a tu empresa</span>
                 </div>
         </div>
@@ -110,7 +111,7 @@ const createCaracteristics = ()=>{
         <div class="caracteristics">
             <i class='bx bxs-mobile'></i>
                 <div class="content__caracteristics">
-                    <span>Más seguro,</span>
+                    <span>Más seguro,</span><br>
                     <span class="txt__caracteristics">Al estar en la nube debes estar seguro que tu informacion estará siempre disponible desde cualquier lugar del mundo</span>
                 </div>
         </div>
