@@ -1,4 +1,7 @@
 import { createHome } from "./home-app";
+import {createLogin } from './login-app';
+import {createPlanes} from './plans-app';
+import {createRegister} from './register-app';
 
 
 const init = (container)=>{
@@ -16,6 +19,9 @@ const createHtml = (container)=>{
     wrapper.appendChild(createMain(setSection));
     wrapper.appendChild(createFooter());
     createHome();
+    createLogin();
+    createPlanes();
+    createRegister();
 };
 
 
@@ -62,7 +68,7 @@ const createMain = (event)=>{
     main.appendChild(createSections());
     const sectionNav = Array.from(document.querySelectorAll('[data-target]'));
     sectionNav.map((element)=>{element.addEventListener('click', event)});
-    const juju = document.getElementById('wrapper-home');
+    //const juju = document.getElementById('wrapper-home');
     wrapper.appendChild(main);
     return wrapper;
 };
@@ -74,11 +80,11 @@ const createSections = ()=>{
     wrapper.classList = 'wrapper__sections';
     wrapper.innerHTML = `
     <div data-content id="wrapper-home" class="wrapper__home activo"></div>
-    <div data-content id="wrapper-plan" class="wrapper__plan">Aqui van los planes</div>
+    <div data-content id="wrapper-plan" class="wrapper__plan"></div>
     <div data-content id="wrapper-interactua" class="">Aqui va interactuar</div>
     <div data-content id="wrapper-conozcamonos" class="">Aqui va conozcamonos</div>
-    <div data-content id="wrapper-login" class="">Aqui van login</div>
-    <div data-content id="wrapper-count" class="">Aqui van create count</div>
+    <div data-content id="wrapper-login" class="wrapper__login"></div>
+    <div data-content id="wrapper-count" class="wrapper__count"></div>
     <div data-content id="wrapper-contacto" class="">Aqui va contacto</div>`;
     
 
