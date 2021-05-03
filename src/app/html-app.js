@@ -2,6 +2,7 @@ import { createHome } from "./home-app";
 import {createLogin } from './login-app';
 import {createPlanes} from './plans-app';
 import {createRegister} from './register-app';
+import {createConozcamonos} from './conozcamonos-app';
 
 
 const init = (container)=>{
@@ -22,6 +23,7 @@ const createHtml = (container)=>{
     createLogin();
     createPlanes();
     createRegister();
+    createConozcamonos();
 };
 
 
@@ -82,7 +84,7 @@ const createSections = ()=>{
     <div data-content id="wrapper-home" class="wrapper__home activo"></div>
     <div data-content id="wrapper-plan" class="wrapper__plan"></div>
     <div data-content id="wrapper-interactua" class="">Aqui va interactuar</div>
-    <div data-content id="wrapper-conozcamonos" class="">Aqui va conozcamonos</div>
+    <div data-content id="wrapper-conozcamonos" class=""></div>
     <div data-content id="wrapper-login" class="wrapper__login"></div>
     <div data-content id="wrapper-count" class="wrapper__count"></div>
     <div data-content id="wrapper-contacto" class="">Aqui va contacto</div>`;
