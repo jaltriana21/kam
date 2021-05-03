@@ -1,4 +1,5 @@
 import { createHome } from "./home-app";
+import { createInteractua } from "./interactua-app";
 import {createLogin } from './login-app';
 import {createPlanes} from './plans-app';
 import {createRegister} from './register-app';
@@ -22,6 +23,7 @@ const createHtml = (container)=>{
     createLogin();
     createPlanes();
     createRegister();
+    createInteractua();
 };
 
 
@@ -34,7 +36,6 @@ const createHeader = ()=>{
         <div id="wrapper-nav" class="wrapper__nav">
             <nav>
                 <div id="wrapper-content" class="wrapper__content">
-                    <ul class="nav__list">
                     <div class="nav__li">
                         <li class="nav__item"><a href="#planes" data-target="plan" class="nav__link">PLANES</a></li>
                         <li class="nav__item"><a href="#interactua" data-target="interactua" class="nav__link">INTERACTUA</a></li>
@@ -42,17 +43,16 @@ const createHeader = ()=>{
                         <li class="nav__item"><a href="#conozcamonos" data-target="conozcamonos" class="nav__link">CONOZCAMONOS</a></li>
   
                         <div class="nav__btn">
-                        <button class="btn__login" id="btn-login"><a href="#login" class="nav__link"><span data-target="login" class="txt__btn">INGRESAR</span></a></button>
-                        <button class="btn__count" id="btn-count"><a href="#count" class="nav__link"><span data-target="count" class="txt__btn">CREAR CUENTA</span></a></button>
+                        <a href="#login" class="nav__link"><button class="btn__login" id="btn-login" data-target="login"><span data-target="login" class="txt__btn">INGRESAR</span></button></a>
+                        <a href="#count" class="nav__link"><button class="btn__count" id="btn-count" data-target="count"><span data-target="count" class="txt__btn">CREAR CUENTA</span></button></a>
                         </div>
                      </div>   
-                    </ul>
                 </div> 
             </nav>
         </div>
         <div class="wrapper__messaje">
             <span class="messaje__hour">Llamanos 3117166194</span>
-            <span class="messaje__hour">8am a 6pm</span>
+            <span class="messaje__hour2">8am a 6pm</span>
         </div>
     </header>`;
 
@@ -81,7 +81,7 @@ const createSections = ()=>{
     wrapper.innerHTML = `
     <div data-content id="wrapper-home" class="wrapper__home activo"></div>
     <div data-content id="wrapper-plan" class="wrapper__plan"></div>
-    <div data-content id="wrapper-interactua" class="">Aqui va interactuar</div>
+    <div data-content id="wrapper-interactua" class=""></div>
     <div data-content id="wrapper-conozcamonos" class="">Aqui va conozcamonos</div>
     <div data-content id="wrapper-login" class="wrapper__login"></div>
     <div data-content id="wrapper-count" class="wrapper__count"></div>
