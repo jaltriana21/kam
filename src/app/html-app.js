@@ -11,6 +11,16 @@ const init = (container)=>{
 };
 
 
+const createSecticions = ()=>{
+    createHome();
+    createLogin();
+    createPlanes();
+    createRegister();
+    createConozcamonos();
+    createInteractua();
+
+};
+
 const createHtml = (container)=>{
     const wrapper = document.createElement('div');
     wrapper.id    = 'wrapper-html';
@@ -20,12 +30,7 @@ const createHtml = (container)=>{
     wrapper.appendChild(createHeader());
     wrapper.appendChild(createMain(setSection));
     wrapper.appendChild(createFooter());
-    createHome();
-    createLogin();
-    createPlanes();
-    createRegister();
-    createConozcamonos();
-    createInteractua();
+    createSecticions();
 };
 
 
@@ -69,8 +74,7 @@ const createMain = (event)=>{
     const main = document.createElement('main');
     main.appendChild(createSections());
     const sectionNav = Array.from(document.querySelectorAll('[data-target]'));
-    sectionNav.map((element)=>{element.addEventListener('click', event)});
-    //const juju = document.getElementById('wrapper-home');
+    sectionNav.map((element)=>{element.addEventListener('click', event)});   
     wrapper.appendChild(main);
     return wrapper;
 };

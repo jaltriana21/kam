@@ -315,7 +315,7 @@ i{
 
 /*----login-------*/
 
-.login_continer{
+.wrapper__login__form{
     flex-direction: row;
     display: flex;   
 }
