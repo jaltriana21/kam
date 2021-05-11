@@ -2,7 +2,7 @@ const createHome = ()=>{
     const wrapper = document.getElementById('wrapper-home');
     wrapper.appendChild(createImgHeader());
     wrapper.appendChild(createGalery());
-    wrapper.appendChild(createPlanes());
+    wrapper.appendChild(createPlans());
     wrapper.appendChild(createCaracteristics());
     wrapper.appendChild(createClients());
     const sectionNav = Array.from(document.querySelectorAll('[data-target]'));
@@ -40,7 +40,7 @@ const createGalery = ()=>{
     return wrapper;
 }
 
-const createPlanes = ()=>{
+const createPlans = ()=>{
     const wrapper = document.createElement('div');
     wrapper.id = 'wrapper-plans';
     wrapper.classList = 'wrapper__plans';
@@ -116,7 +116,7 @@ const createCaracteristics = ()=>{
         </div>
         
         <div class="caracteristics__btn">
-        <button class="btn__caracteristics" id="btn-caracteristics"><a href="#contacto" class="nav__link"><span data-target="contacto" class="txt__btn__caracteristics">Contactanos ></span></a></button>
+        <button class="btn__caracteristics" id="btn-caracteristics"><a href="#conozcamonos" class="nav__link"><span data-target="conozcamonos" class="txt__btn__caracteristics">Contactanos ></span></a></button>
         </div>`;
     return wrapper;
 }

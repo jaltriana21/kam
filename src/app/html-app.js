@@ -1,6 +1,6 @@
-import { createHome } from "./home-app";
-import { createInteractua } from "./interactua-app";
-import {createLogin } from './login-app';
+import {createHome} from "./home-app";
+import {createInteract} from "./interactua-app";
+import {createLogin} from './login-app';
 import {createPlanes} from './plans-app';
 import {createRegister} from './register-app';
 import {createConozcamonos} from './conozcamonos-app';
@@ -11,16 +11,6 @@ const init = (container)=>{
 };
 
 
-const createSecticions = ()=>{
-    createHome();
-    createLogin();
-    createPlanes();
-    createRegister();
-    createConozcamonos();
-    createInteractua();
-
-};
-
 const createHtml = (container)=>{
     const wrapper = document.createElement('div');
     wrapper.id    = 'wrapper-html';
@@ -30,7 +20,19 @@ const createHtml = (container)=>{
     wrapper.appendChild(createHeader());
     wrapper.appendChild(createMain(setSection));
     wrapper.appendChild(createFooter());
-    createSecticions();
+    showSections();
+
+    return wrapper;
+};
+
+
+const showSections = ()=>{
+    createHome();
+    createLogin();
+    createPlanes();
+    createRegister();
+    createConozcamonos();
+    createInteract();
 };
 
 
@@ -48,12 +50,11 @@ const createHeader = ()=>{
                         <li class="nav__item"><a href="#interactua" data-target="interactua" class="nav__link">INTERACTUA</a></li>
                         <li class="nav__item3"><a href="#home" class="nav__link active"><img data-target="home" class="nav__img" src="./assets/front.jpg" alt="front"><div><span class="nav__img__title" data-target="home">SOFTWARE</span></div></a></li>
                         <li class="nav__item"><a href="#conozcamonos" data-target="conozcamonos" class="nav__link">CONOZCAMONOS</a></li>
-  
                         <div class="nav__btn">
-                        <a href="#login" class="nav__link"><button class="btn__login" id="btn-login" data-target="login"><span data-target="login" class="txt__btn">INGRESAR</span></button></a>
-                        <a href="#count" class="nav__link"><button class="btn__count" id="btn-count" data-target="count"><span data-target="count" class="txt__btn">CREAR CUENTA</span></button></a>
+                            <a href="#login" class="nav__link"><button class="btn__login" id="btn-login" data-target="login"><span data-target="login" class="txt__btn">INGRESAR</span></button></a>
+                            <a href="#count" class="nav__link"><button class="btn__count" id="btn-count" data-target="count"><span data-target="count" class="txt__btn">CREAR CUENTA</span></button></a>
                         </div>
-                     </div>   
+                    </div>   
                 </div> 
             </nav>
         </div>
@@ -87,14 +88,11 @@ const createSections = ()=>{
     wrapper.innerHTML = `
     <div data-content id="wrapper-home" class="wrapper__home activo"></div>
     <div data-content id="wrapper-plan" class="wrapper__plan"></div>    
-    <div data-content id="wrapper-conozcamonos" class=""></div>
-    <div data-content id="wrapper-interactua" class=""></div>
-    <div data-content id="wrapper-conozcamonos" class="">Aqui va conozcamonos</div>
+    <div data-content id="wrapper-conozcamonos" class="wrapper__conozcamonos"></div>
+    <div data-content id="wrapper-interactua" class="wrapper__interactua"></div>
     <div data-content id="wrapper-login" class="wrapper__login"></div>
-    <div data-content id="wrapper-count" class="wrapper__count"></div>
-    <div data-content id="wrapper-contacto" class="">Aqui va contacto</div>`;
+    <div data-content id="wrapper-count" class="wrapper__count"></div>`;
     
-
     return wrapper;
 };
 
@@ -123,10 +121,10 @@ const createFooter = ()=>{
         <div class="footer__icons">
             <a href="https://www.facebook.com/" target="_blank" class="nav__link"><i class='icn bx bxl-facebook'></i></a>
         </div>
-    </footer>`
+    </footer>`;
 
     return wrapper;
-}
+};
 
 
 export{init};

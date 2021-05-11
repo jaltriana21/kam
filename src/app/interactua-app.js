@@ -1,15 +1,15 @@
-const createInteractua = ()=>{
+const createInteract = ()=>{
     const wrapper = document.getElementById('wrapper-interactua');
     wrapper.appendChild(createImgHeader());
     wrapper.appendChild(createGalery());
-    wrapper.appendChild(createTutoriales());
-    wrapper.appendChild(createPreguntas());
-    listPreguntas();
+    wrapper.appendChild(createTutorials());
+    wrapper.appendChild(createPregunts());
+    listPregunts();
 
     const sectionNav = Array.from(document.querySelectorAll('[data-target]'));
     sectionNav.map((element)=>{element.addEventListener('click', setSection)});
     return wrapper;
-}
+};
 
 
 
@@ -24,9 +24,9 @@ const createImgHeader = ()=>{
     <div class="title__img__txt">
         <span class="description__home">Experimenta gratis,</span>
         <p class="description__home2">hazlo durante cuatro dias.</p>
-    </div>`
+    </div>`;
     return wrapper;
-}
+};
 
 
 const createGalery = ()=>{
@@ -45,10 +45,10 @@ const createGalery = ()=>{
     <div class="content__galery"><iframe class="galery__img1" src="https://www.youtube.com/embed/K5Ym0KLZyOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><iframe class="galery__img2" src="https://www.youtube.com/embed/K5Ym0KLZyOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
     </div>`;
     return wrapper;
-}
+};
 
 
-const createTutoriales = ()=>{
+const createTutorials = ()=>{
     const wrapper = document.createElement('div');
     wrapper.id = 'wrapper-tutoriales';
     wrapper.classList = 'wrapper__tutoriales';
@@ -76,10 +76,10 @@ const createTutoriales = ()=>{
     </div>
     `;
     return wrapper;
-}
+};
 
 
-const createPreguntas = ()=>{
+const createPregunts = ()=>{
     const wrapper = document.createElement('div');
     wrapper.id = 'wrapper-preguntas';
     wrapper.classList = 'wrapper__preguntas';
@@ -90,12 +90,10 @@ const createPreguntas = ()=>{
                 <span class="txt__pregunta">pregunta 1</span>
                 <i class='bx bxs-chevron-down'></i>
             </div>   
-
             <div id="respuesta" class="respuesta">
                 <p id="txt-respuesta" class="txt__respuesta">Lorem ipsum dolor sit amet consectetur.</p>
             </div>  
         </div>
-
         <div id="content-pregunta" class="content__pregunta">
             <div id="pregunta" class="pregunta">
                 <span class="txt__pregunta">pregunta 2</span>
@@ -104,38 +102,35 @@ const createPreguntas = ()=>{
             
             <div id="respuesta" class="respuesta">
                 <p id="txt-respuesta" class="txt__respuesta">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, sit necessitatibus? Quidem optio non similique ratione eligendi enim, consequatur maxime? Saepe cum itaque praesentium eos dolore rerum alias repellat assumenda?</p>
-            </div>    
-            
-        </div>
-    `;
+            </div>           
+        </div>`;
 
     return wrapper;
-}
+};
 
 
 
-const listPreguntas = ()=>{
-    const preguntas = Array.from(document.querySelectorAll(".content__pregunta"));
-    console.log(preguntas);
-    preguntas.map((pregunta)=>{
-        pregunta.addEventListener("click",(e)=>{
+const listPregunts = ()=>{
+    const pregunts = Array.from(document.querySelectorAll(".content__pregunta"));
+    pregunts.map((pregunt)=>{
+        pregunt.addEventListener("click",(e)=>{
             e.currentTarget.classList.toggle("activa");
-            const respuesta = pregunta.querySelector(".txt__respuesta");
-            const alturaRespuesta = respuesta.scrollHeight;
-            if(!respuesta.style.maxHeight){
-                respuesta.style.maxHeight = alturaRespuesta + 'px';
+            const response = pregunt.querySelector(".txt__respuesta");
+            const heightResponse = response.scrollHeight;
+            if(!response.style.maxHeight){
+                response.style.maxHeight = heightResponse + 'px';
             }else{
-                respuesta.style.maxHeight = null;
-            }
-            preguntas.forEach((elemento)=>{
-            if(pregunta !== elemento){
-                elemento.classList.remove("activa");
-                elemento.querySelector(".txt__respuesta").style.maxHeight = null;
-            }
+                response.style.maxHeight = null;
+            };
+            pregunts.forEach((element)=>{
+                if(pregunt !== elemento){
+                    element.classList.remove("activa");
+                    element.querySelector(".txt__respuesta").style.maxHeight = null;
+                };
             });
         });
     });
-}
+};
 
 
 
@@ -150,4 +145,4 @@ const setSection = (ev)=>{
 
 
 
-export{createInteractua};
+export{createInteract};
