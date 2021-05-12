@@ -1,4 +1,4 @@
-const createLogin = ()=>{
+const createLogin = () => {
     const wrapper = document.getElementById('wrapper-login');   
     wrapper.appendChild(createLoginElements());      
     const sectionNav = Array.from(document.querySelectorAll('[data-target]'));
@@ -15,16 +15,14 @@ const createLoginElements = () =>{
     return wrapper;
 }
 
-const createDivForm = ()=>{
+const createDivForm = () => {
     const divForm = document.createElement('div');
     divForm.classList = 'center';
-    divForm.innerHTML =  `        
-                
-        <img class="login_img_one" src="./assets/0.png">
-        <br>
-        <span class="description__home">Bienvenido</span>
-        <p class="description__home2">¿En que podemos servirte hoy?</p>        
-        
+    divForm.innerHTML =  
+    `<img class="login_img_one" src="./assets/0.png">
+    <br />
+    <span class="description__home">Bienvenido</span>
+    <p class="description__home2">¿En que podemos servirte hoy?</p>        
     `;
 
     divForm.appendChild(createForm());
@@ -41,8 +39,7 @@ const createForm = () =>{
     form.appendChild(btnLogin());
 
     return form;
-    
-}
+};
 
 const inputEmail = () =>{
     const input = document.createElement('input');
@@ -86,7 +83,6 @@ const createImgs = ()=>{
                 <img class="login_img_one" src="./assets/1.jpg">                            
             </div> 
     `;
-
     return wrapper;
 }
 
