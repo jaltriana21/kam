@@ -4,27 +4,32 @@ import {createLogin} from './login-app';
 import {createPlanes} from './plans-app';
 import {createRegister} from './register-app';
 import {createConozcamonos} from './conozcamonos-app';
-
+import header from '../html/html-header.htm';
 
 const init = (container)=>{
-    createHtml(container);
+    createWrapper(container);
+    showSections();
 };
 
-
-const createHtml = (container)=>{
+const createLayout = () => {
     const wrapper = document.createElement('div');
-    wrapper.id    = 'wrapper-html';
+    wrapper.id = 'wrapper-html';
     wrapper.classList = 'wrapper__html';
-    const main = document.getElementById(container);
-    main.appendChild(wrapper);
-    wrapper.appendChild(createHeader());
-    wrapper.appendChild(createMain(setSection));
-    wrapper.appendChild(createFooter());
-    showSections();
-
+    addSectionsLayout(wrapper);
     return wrapper;
 };
 
+const addSectionsLayout = (wrapper) => {
+    wrapper.appendChild(createHeader());
+    wrapper.appendChild(createMain(setSection));
+    wrapper.appendChild(createFooter());
+};
+
+
+const createWrapper = (container)=>{
+    const main = document.getElementById(container);
+    main.appendChild(createLayout());
+};
 
 const showSections = ()=>{
     createHome();
@@ -35,76 +40,60 @@ const showSections = ()=>{
     createInteract();
 };
 
-
 const createHeader = ()=>{
     const wrapper = document.createElement('div');
     wrapper.id    = 'wrapper-header';
     wrapper.classList = 'wrapper__header';
-    wrapper.innerHTML = `
-    <header>
-        <div id="wrapper-nav" class="wrapper__nav">
-            <nav>
-                <div id="wrapper-content" class="wrapper__content">
-                    <div class="nav__li">
-                        <li class="nav__item"><a href="#planes" data-target="plan" class="nav__link">PLANES</a></li>
-                        <li class="nav__item"><a href="#interactua" data-target="interactua" class="nav__link">INTERACTUA</a></li>
-                        <li class="nav__item3"><a href="#home" class="nav__link active"><img data-target="home" class="nav__img" src="./assets/front.jpg" alt="front"><div><span class="nav__img__title" data-target="home">SOFTWARE</span></div></a></li>
-                        <li class="nav__item"><a href="#conozcamonos" data-target="conozcamonos" class="nav__link">CONOZCAMONOS</a></li>
-                        <div class="nav__btn">
-                            <a href="#login" class="nav__link"><button class="btn__login" id="btn-login" data-target="login"><span data-target="login" class="txt__btn">INGRESAR</span></button></a>
-                            <a href="#count" class="nav__link"><button class="btn__count" id="btn-count" data-target="count"><span data-target="count" class="txt__btn">CREAR CUENTA</span></button></a>
-                        </div>
-                    </div>   
-                </div> 
-            </nav>
-        </div>
-        <div class="wrapper__messaje">
-            <span class="messaje__hour">Llamanos 3117166194</span>
-            <span class="messaje__hour2">8am a 6pm</span>
-        </div>
-    </header>`;
-
+    wrapper.innerHTML = header;
     return wrapper;
 };
 
+const addEventItemMenu = ( id, ev ) => {
+    const el = document.getElementById(id);
+    el.addEventListener('click', ev);
+};
 
-const createMain = (event)=>{
+const addEventsMainNav = () => {
+    addEventItemMenu('planes', setSection);
+    addEventItemMenu('interactua', setSection);
+    addEventItemMenu('home', setSection);
+    addEventItemMenu('conozcamonos', setSection);
+};
+
+const createMain = ()=>{
     const wrapper = document.createElement('div');
     wrapper.id    = 'wrapper-main';
     wrapper.classList = 'wrapper__main';
     const main = document.createElement('main');
     main.appendChild(createSections());
-    const sectionNav = Array.from(document.querySelectorAll('[data-target]'));
-    sectionNav.map((element)=>{element.addEventListener('click', event)});   
+    addEventsMainNav();
     wrapper.appendChild(main);
     return wrapper;
 };
-
 
 const createSections = ()=>{
     const wrapper = document.createElement('div');
     wrapper.id = 'wrapper-sections';
     wrapper.classList = 'wrapper__sections';
     wrapper.innerHTML = `
-    <div data-content id="wrapper-home" class="wrapper__home activo"></div>
-    <div data-content id="wrapper-plan" class="wrapper__plan"></div>    
-    <div data-content id="wrapper-conozcamonos" class="wrapper__conozcamonos"></div>
-    <div data-content id="wrapper-interactua" class="wrapper__interactua"></div>
-    <div data-content id="wrapper-login" class="wrapper__login"></div>
-    <div data-content id="wrapper-count" class="wrapper__count"></div>`;
+    <div data-content id="wrapper-home" class="wrapper_nav wrapper__home activo"></div>
+    <div data-content id="wrapper-plan" class="wrapper_nav wrapper__plan"></div>    
+    <div data-content id="wrapper-conozcamonos" class="wrapper_nav wrapper__conozcamonos"></div>
+    <div data-content id="wrapper-interactua" class="wrapper_nav wrapper__interactua"></div>
+    <div data-content id="wrapper-login" class="wrapper_nav wrapper__login"></div>
+    <div data-content id="wrapper-count" class="wrapper_nav wrapper__count"></div>`;
     
     return wrapper;
 };
 
-
 const setSection = (ev)=>{
-    const content = Array.from(document.querySelectorAll('[data-content]'));
+    const wrapper = document.getElementsByClassName('wrapper_nav');//document.getElementById('wrapper-sections').getElementsByTagName('div');
+    const content = [].slice.call(wrapper);
     content.map((element)=>{element.classList.remove('activo')});
     const id = ev.target.dataset.target;
     const selectSection = document.getElementById(`wrapper-${id}`);
     selectSection.classList.add('activo');
 };
-
 
 const createFooter = ()=>{
     const wrapper = document.createElement('div');
