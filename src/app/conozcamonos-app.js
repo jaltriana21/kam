@@ -3,8 +3,7 @@ const createConozcamonos = ()=>{
     wrapper.appendChild(createImgHeader());  
     wrapper.appendChild(createInfo()); 
     wrapper.appendChild(createForm()); 
-    const sectionNav = Array.from(document.querySelectorAll('[data-target]'));
-    sectionNav.map((element)=>{element.addEventListener('click', setSection)});
+ 
     return wrapper;
 }
 
@@ -103,12 +102,6 @@ const createForm = ()=>{
     return wrapper;
 }
 
-const setSection = (ev)=>{
-    const content = Array.from(document.querySelectorAll('[data-content]'));
-    content.map((element)=>{element.classList.remove('activo')});
-    const id = ev.target.dataset.target;
-    const selectSection = document.getElementById(`wrapper-${id}`);
-    selectSection.classList.add('activo');
-};
+
 
 export{createConozcamonos};

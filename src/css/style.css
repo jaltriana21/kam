@@ -14,6 +14,7 @@ body{
 a{
     text-decoration: none;
     color: #000;
+    cursor: pointer;
 }
 
 
@@ -31,7 +32,7 @@ a{
 }
 
 /*----navegation---*/
-.wrapper__nav{
+.wrapper__navegation{
     margin-top: 20px;
     border-top: #F2F3F4 solid 2px;
     border-bottom: #F2F3F4 solid 2px;
@@ -79,7 +80,7 @@ a{
     width: 80%;
     background: none;
     border: orange solid 1px;
-    font-size: 2rem;
+    cursor: pointer;
 }
 
 
@@ -98,6 +99,10 @@ a{
 
 .messaje__hour2{
     margin-top: -5px;
+}
+
+.txt__btn{
+    font-size: 1.5rem;
 }
 
 
@@ -417,7 +422,7 @@ i{
 
 footer{
     display: flex;
-    margin: 0 auto;
+    margin: 30px auto;
     text-align: center;
     border: solid #F2F3F4 1px;
     width: 150px;
@@ -435,6 +440,7 @@ footer{
 
 
 /*----interactua----*/
+
 
 .wrapper__tutoriales{
     width: 100%;
@@ -456,8 +462,8 @@ footer{
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
+    margin-top: 20px;
 }
 
 .btn__interactua{
