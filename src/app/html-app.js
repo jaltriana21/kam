@@ -7,11 +7,31 @@ import {createConozcamonos} from './conozcamonos-app';
 
 
 const init = (container)=>{
-    createHtml(container);
+    createWrapper(container);
+    showSecticions();
 };
 
+const createWrapper = (container) =>{
+    const main = document.getElementById(container);
+    main.appendChild(createLayout(container));
+}
 
-const createSecticions = ()=>{
+const createLayout = (container)=>{
+    const wrapper = document.createElement('div');
+    wrapper.id    = 'wrapper-html';
+    wrapper.classList = 'wrapper__html';
+    addSectionsLayout(wrapper);
+    
+     return wrapper;
+};
+
+const addSectionsLayout = (wrapper) => {
+    wrapper.appendChild(createHeader());
+    wrapper.appendChild(createMain(setSection));
+    wrapper.appendChild(createFooter());   
+};
+
+const showSecticions = () => {
     createHome();
     createLogin();
     createPlanes();
@@ -20,19 +40,6 @@ const createSecticions = ()=>{
     createInteractua();
 
 };
-
-const createHtml = (container)=>{
-    const wrapper = document.createElement('div');
-    wrapper.id    = 'wrapper-html';
-    wrapper.classList = 'wrapper__html';
-    const main = document.getElementById(container);
-    main.appendChild(wrapper);
-    wrapper.appendChild(createHeader());
-    wrapper.appendChild(createMain(setSection));
-    wrapper.appendChild(createFooter());
-    createSecticions();
-};
-
 
 const createHeader = ()=>{
     const wrapper = document.createElement('div');
@@ -44,10 +51,10 @@ const createHeader = ()=>{
             <nav>
                 <div id="wrapper-content" class="wrapper__content">
                     <div class="nav__li">
-                        <li class="nav__item"><a href="#planes" data-target="plan" class="nav__link">PLANES</a></li>
-                        <li class="nav__item"><a href="#interactua" data-target="interactua" class="nav__link">INTERACTUA</a></li>
-                        <li class="nav__item3"><a href="#home" class="nav__link active"><img data-target="home" class="nav__img" src="./assets/front.jpg" alt="front"><div><span class="nav__img__title" data-target="home">SOFTWARE</span></div></a></li>
-                        <li class="nav__item"><a href="#conozcamonos" data-target="conozcamonos" class="nav__link">CONOZCAMONOS</a></li>
+                        <li class="nav__item"><a href="#planes" data-target="plan" id="planes" class="nav__link">PLANES</a></li>
+                        <li class="nav__item"><a href="#interactua" data-target="interactua" id="interactua" class="nav__link">INTERACTUA</a></li>
+                        <li class="nav__item3"><a href="#home" class="nav__link active"><img data-target="home" id="home" class="nav__img" src="./assets/front.jpg" alt="front"><div><span class="nav__img__title" data-target="home">SOFTWARE</span></div></a></li>
+                        <li class="nav__item"><a href="#conozcamonos" data-target="conozcamonos" id="conozcamonos" class="nav__link">CONOZCAMONOS</a></li>
   
                         <div class="nav__btn">
                         <a href="#login" class="nav__link"><button class="btn__login" id="btn-login" data-target="login"><span data-target="login" class="txt__btn">INGRESAR</span></button></a>
@@ -66,19 +73,42 @@ const createHeader = ()=>{
     return wrapper;
 };
 
+const addEventItemMenu = ( id, ev ) => {
+    const el = document.getElementById(id);
+    el.addEventListener('click', ev);
+};
+
+const addEventsMainNav = () => {
+    addEventItemMenu('planes', setSection);
+    addEventItemMenu('interactua', setSection);
+    addEventItemMenu('home', setSection);
+    addEventItemMenu('conozcamonos', setSection);
+};
 
 const createMain = (event)=>{
     const wrapper = document.createElement('div');
     wrapper.id    = 'wrapper-main';
     wrapper.classList = 'wrapper__main';
     const main = document.createElement('main');
-    main.appendChild(createSections());
-    const sectionNav = Array.from(document.querySelectorAll('[data-target]'));
-    sectionNav.map((element)=>{element.addEventListener('click', event)});   
+    main.appendChild(createHomePage());
+    //const sectionNav = Array.from(document.querySelectorAll('[data-target]'));
+    //sectionNav.map((element)=>{element.addEventListener('click', event)});   
+    //addEventsMainNav();
+    //document.getElementById('planes').addEventListener('click', setSection);
     wrapper.appendChild(main);
     return wrapper;
 };
 
+const createHomePage = () =>{
+    const wrapper = document.createElement('div');
+    wrapper.id = 'wrapper-sections';
+    wrapper.classList = 'wrapper__sections';
+    wrapper.innerHTML = `
+    <div data-content id="wrapper-home" class="wrapper__home activo"></div>
+    `;
+
+    return wrapper;
+}
 
 const createSections = ()=>{
     const wrapper = document.createElement('div');
