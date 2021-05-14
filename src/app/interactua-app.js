@@ -1,146 +1,149 @@
-const createInteractua = ()=>{
+import headerInteractua from '../html/interactua/header-interactua.html';
+import galeryInteractua from '../html/interactua/galery-interactua.html';
+import tutorialsInteractua from '../html/interactua/tutorials-interactua.html';
+import preguntsInteractua from '../html/interactua/pregunts-interactua.html';
+
+
+const createInteract = () => {
     const wrapper = document.getElementById('wrapper-interactua');
     wrapper.appendChild(createImgHeader());
     wrapper.appendChild(createGalery());
-    wrapper.appendChild(createTutoriales());
-    wrapper.appendChild(createPreguntas());
-    listPreguntas();
-
-    const sectionNav = Array.from(document.querySelectorAll('[data-target]'));
-    sectionNav.map((element)=>{element.addEventListener('click', setSection)});
+    wrapper.appendChild(createTutorials());
+    wrapper.appendChild(createPregunts());
+    addEventsInteract();
     return wrapper;
-}
+};
+
+const addEventsInteract = () => {
+    listPregunts();
+};
 
 
-
-const createImgHeader = ()=>{
+const createImgHeader = () => {
     const wrapper = document.createElement('div');
     wrapper.id = 'wrapper-img-home';
     wrapper.classList = 'wrapper__img__home';
-    wrapper.innerHTML = `
-    <div class="title__img">
-        <img class="home__img__one" src="./assets/0.png" alt="">
-    </div>
-    <div class="title__img__txt">
-        <span class="description__home">Experimenta gratis,</span>
-        <p class="description__home2">hazlo durante cuatro dias.</p>
-    </div>`
+    wrapper.innerHTML = headerInteractua;
     return wrapper;
-}
+};
 
 
-const createGalery = ()=>{
+const createGalery = () => {
     const wrapper = document.createElement('div');
     wrapper.id = 'wrapper-galery';
     wrapper.classList = 'wrapper__galery';
-    wrapper.innerHTML = `
-    <div class="content__btn__interactua">
-    <div class="value__btn__interactua">
-     <a href="#crear_cuenta" class="link__interactua"><button class="btn__interactua" id="btn-interactua" data-target="count"><span data-target="count" class="txt__btn__interactua">Crear cuenta ></span></button></a>
-     </div>
-    </div>
-    <div class="galery">
-    <div class="content__galery"><iframe class="galery__img" src="https://www.youtube.com/embed/K5Ym0KLZyOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-    <div class="content__galery"><iframe class="galery__img" src="https://www.youtube.com/embed/K5Ym0KLZyOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-    <div class="content__galery"><iframe class="galery__img1" src="https://www.youtube.com/embed/K5Ym0KLZyOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><iframe class="galery__img2" src="https://www.youtube.com/embed/K5Ym0KLZyOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-    </div>`;
+    wrapper.appendChild(contentSentInteractua());
+    wrapper.appendChild(contentGalery());
     return wrapper;
-}
+};
 
 
-const createTutoriales = ()=>{
+const contentGalery = () => {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = galeryInteractua;
+    return wrapper;
+};
+
+
+const contentSentInteractua = () => {
+    const wrapper = document.createElement('div');
+    wrapper.classList = 'content__btn__interactua';
+    wrapper.appendChild(sentInteractua());
+    return wrapper;
+};
+
+
+const sentInteractua = () => {
+    const el = document.createElement('button');
+    el.classList = 'btn__interactua';
+    el.id = 'btn-interactua';
+    el.appendChild(sentTxtInteractua());
+    el.addEventListener('click', setSection);
+    return el;
+};    
+
+
+const sentTxtInteractua = () => {
+    const el = document.createElement('a');
+    el.classList = 'link__interactua';
+    el.innerHTML = '<span data-target="count" class="txt__btn__interactua">Crear cuenta ></span>'
+    return el;
+};
+
+
+const createTutorials = () => {
     const wrapper = document.createElement('div');
     wrapper.id = 'wrapper-tutoriales';
     wrapper.classList = 'wrapper__tutoriales';
-    wrapper.innerHTML = `
-    <div class="tutoriales">
-    <div class="content__tutorial"><iframe class="galery__img__tuto" src="https://www.youtube.com/embed/K5Ym0KLZyOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        <div class="txt__tutorial">
-        <span>Creando terceros</span>
-        <span>Creando Productos</span>
-        <span>Creando Reportes</span>
-        <span>Cuadres de caja</span>
-        </div>
-    </div>
-    <div class="tutoriales">
-    <div class="content__tutorial"><iframe class="galery__img__tuto" src="https://www.youtube.com/embed/K5Ym0KLZyOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        <div class="txt__tutorial">
-        <span>Creando terceros</span>
-        <span>Creando Productos</span>
-        <span>Creando Reportes</span>
-        <span>Cuadres de caja</span>
-        </div>
-    </div>
-    <div class="content__btn__interactua">
-     <a href="#plan" class="link__interactua"><button class="btn__interactua" id="btn-interactua" data-target="plan"><span data-target="plan" class="txt__btn__interactua">Ver precios ></span></button></a>
-    </div>
-    `;
+    wrapper.innerHTML = tutorialsInteractua;
+    wrapper.appendChild(contentSentTutorials());
     return wrapper;
-}
+};
 
 
-const createPreguntas = ()=>{
+const contentSentTutorials = () => {
+    const wrapper = document.createElement('div');
+    wrapper.classList = 'content__btn__interactua';
+    wrapper.appendChild(sentTutorials());
+    return wrapper;
+};
+
+
+const sentTutorials = () => {
+    const el = document.createElement('button');
+    el.classList = 'btn__interactua';
+    el.id = 'btn-interactua';
+    el.appendChild(sentTxtTutorials());
+    el.addEventListener('click', setSection);
+    return el;
+};    
+
+
+const sentTxtTutorials = () => {
+    const el = document.createElement('a');
+    el.classList = 'link__interactua';
+    el.innerHTML = '<span data-target="plan" class="txt__btn__interactua">Ver precios ></span>';
+    return el;
+};
+
+
+const createPregunts = ()=>{
     const wrapper = document.createElement('div');
     wrapper.id = 'wrapper-preguntas';
     wrapper.classList = 'wrapper__preguntas';
-    wrapper.innerHTML = `
-        <span class="title__preguntas">Preguntas frecuentes</span>
-        <div id="content-pregunta" class="content__pregunta">
-            <div id="pregunta" class="pregunta">
-                <span class="txt__pregunta">pregunta 1</span>
-                <i class='bx bxs-chevron-down'></i>
-            </div>   
-
-            <div id="respuesta" class="respuesta">
-                <p id="txt-respuesta" class="txt__respuesta">Lorem ipsum dolor sit amet consectetur.</p>
-            </div>  
-        </div>
-
-        <div id="content-pregunta" class="content__pregunta">
-            <div id="pregunta" class="pregunta">
-                <span class="txt__pregunta">pregunta 2</span>
-                <i class='bx bxs-chevron-down'></i>
-            </div>
-            
-            <div id="respuesta" class="respuesta">
-                <p id="txt-respuesta" class="txt__respuesta">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, sit necessitatibus? Quidem optio non similique ratione eligendi enim, consequatur maxime? Saepe cum itaque praesentium eos dolore rerum alias repellat assumenda?</p>
-            </div>    
-            
-        </div>
-    `;
-
+    wrapper.innerHTML = preguntsInteractua;
     return wrapper;
-}
+};
 
 
-
-const listPreguntas = ()=>{
-    const preguntas = Array.from(document.querySelectorAll(".content__pregunta"));
-    console.log(preguntas);
-    preguntas.map((pregunta)=>{
-        pregunta.addEventListener("click",(e)=>{
+const listPregunts = ()=>{
+    const pregunts =  document.getElementsByClassName('content__pregunta');
+    const content = [].slice.call(pregunts);
+    content.map((pregunt)=>{
+        pregunt.addEventListener("click",(e)=>{
             e.currentTarget.classList.toggle("activa");
-            const respuesta = pregunta.querySelector(".txt__respuesta");
-            const alturaRespuesta = respuesta.scrollHeight;
-            if(!respuesta.style.maxHeight){
-                respuesta.style.maxHeight = alturaRespuesta + 'px';
+            console.log(pregunt);
+            const response = pregunt.querySelector(".txt__respuesta");
+            const heightResponse = response.scrollHeight;
+            if(!response.style.maxHeight){
+                response.style.maxHeight = heightResponse + 'px';
             }else{
-                respuesta.style.maxHeight = null;
-            }
-            preguntas.forEach((elemento)=>{
-            if(pregunta !== elemento){
-                elemento.classList.remove("activa");
-                elemento.querySelector(".txt__respuesta").style.maxHeight = null;
-            }
+                response.style.maxHeight = null;
+            };
+            content.map((element)=>{
+                if(pregunt !== element){
+                    element.classList.remove("activa");
+                    element.querySelector(".txt__respuesta").style.maxHeight = null;
+                };
             });
         });
     });
-}
+};
 
 
-
-const setSection = (ev)=>{
-    const content = Array.from(document.querySelectorAll('[data-content]'));
+const setSection = (ev) => {
+    const wrapper = document.getElementsByClassName('wrapper__nav');
+    const content = [].slice.call(wrapper);
     content.map((element)=>{element.classList.remove('activo')});
     const id = ev.target.dataset.target;
     const selectSection = document.getElementById(`wrapper-${id}`);
@@ -150,4 +153,4 @@ const setSection = (ev)=>{
 
 
 
-export{createInteractua};
+export{createInteract};
